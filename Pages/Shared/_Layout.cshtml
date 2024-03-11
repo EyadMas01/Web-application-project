@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MaswadehEyadSprint4</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MaswadehEyadPrototype.styles.css" asp-append-version="true" />
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light hbg">
+            <div class="container-fluid">
+                <img src="~/images/scoops & smiles.png" alt="" width="110" height="100" class="d-inline-block align-text-top" />
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/About Us">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Admin">Admin</a>
+                        </li>
+
+
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted hbg">
+
+        <div class="container text-black">
+            <p>Sign up to receive coupouns</p>
+            <div class="row mt-4">
+                <div class="col-sm-2 mylabels">
+                    <label>Email: </label>
+                </div>
+                <div class="col-sm-4">
+
+                    <input type="text" class="" />
+                </div>
+                <div class="container text-black">
+                    <div class="row mt-4">
+                        <div class="col-sm-2 mylabels">
+                            <label>Phone number: </label>
+                        </div>
+                        <div class="col-sm-4">
+
+                            <input type="text" class="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-8 offset-sm-2 TM">
+                        <input type="submit" class="btn btn-dark" asp-page-handler="Submit" value="Submit" />
+                </div>
+                <p class="TML">Follow us on Instagram Scoops&Smiles</p>
+                <p>contact us at 918-555-5869</p>
+                <p>or at Scoops&Smiles@hotmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,249 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+<div class="col-sm-12 text-center">
+    <h1 class="display-4">Scoops & Smiles</h1>
+    <p>Where Happiness Melts!</p>
+</div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-12">
+        @* The name of the ID must be unique on the page. No spaces allowed in the name. *@
+        @* The "slide" class is the visual affect when the images transition from
+        one to another. *@
+        <div id="Icecreamecarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interal="3000">
+
+            @* Indicators/Dots *@
+            <div class="carousel-indicators">
+                @* Add a button tag for each picture in your carousel.
+                Only ONE of the buttons should have a class="active".
+
+                The buttons are zero-index-based so the first image
+                has a data-bs-slide-to of '0', the 2nd image is '1', etc. *@
+                <button type="button" data-bs-target="#Icecreamecarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#Icecreamecarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#Icecreamecarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#Icecreamecarousel" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#Icecreamecarousel" data-bs-slide-to="4"></button>
+            </div>
+
+            @* The slideshow/carousel  *@
+            <div class="carousel-inner">
+                @* Only one of the images should be 'active' and it should correspond
+                to the images. *@
+
+                @* Duplicate the div because without the 'active' for any other images. *@
+                <div class="carousel-item active">
+                    <img src="~/images/choclate,strawberry,and vanilla.jpg" alt="" class="img-fluid w-50 d-block mx-auto" />
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <img src="~/images/rasberry_icecream (resized).jpg" alt="" class="img-fluid w-50 d-block mx-auto " />
+                </div>
+                <div class="carousel-item ">
+                    <img src="~/images/melting ice cream (resized).jpg" alt="" class="img-fluid w-50 d-block mx-auto " />
+                </div>
+                <div class="carousel-item ">
+                    <img src="~/Images/622013_Ice-Cream-Cups_FB_012820.png" alt="" class="img-fluid w-50 d-block mx-auto " />
+                </div>
+                <div class="carousel-item ">
+                    <img src="~/Images/various ice cream.jpg" alt="" class="img-fluid w-50 d-block mx-auto " />
+                </div>
+
+            </div>
+
+            @* Left and right controls/icons *@
+            @* The data-bs-target has to be the name used in the ID of the carousel
+            with a '#' in front of the name.*@
+            <button class="carousel-control-prev" type="button" data-bs-target="#Icecreamecarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#Icecreamecarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+    </div>
+
+<div class="row">
+    <p class="text-center TML"> Find out about our other products by pressing the button.</p>
+    <div class="col-lg-12  flexcontainer text-center">
+       @*  <input class="btn2" type="submit" value="Products" asp-page-handler="Process" /> *@
+        <form action="https://localhost:7257/Products">
+            <button class="btn2">Products</button>
+        </form>
+    </div>
+</div>
+
+  
+    
+    @*add a video*@
+<div class="row mt-4">
+    <div class="col-sm-12">
+        <div class="ratio ratio-16x9 TML flexcontainter">
+            <iframe src="https://www.youtube.com/embed/8Qbax_1szSs?si=ayGcovHaCdh5PRti" title="Ice cream video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2 class="text-center TM">Flavour of the Week</h2>
+    </div>
+</div>
+
+    <div class="row BM">
+    <div class="col-lg-6">
+        <img src="~/images/pumpkin vanilla.jpg" alt="" class="img-fluid d-block mx-auto myborder" />
+    </div> 
+    <div class="col-lg-6">
+            <p class="text-center ">
+            Pumpkin Spice Vanilla Ice Cream! It's a taste explosion that'll have your taste buds doing a happy dance. 
+            Don't miss out on the scoop of the season—it's spice, it's nice, and it's pure autumn delight! 🎃🍦✨
+            </p>
+        <p class="text-center TML"> Find out about our other products by pressing the button.</p>
+        <div class="col-lg-12  flexcontainer text-center">
+            @*  <input class="btn2" type="submit" value="Products" asp-page-handler="Process" /> *@
+            <form action="https://localhost:7257/Products">
+                <button class="btn2">Products</button>
+            </form>
+        </div>
+
+        </div>
+    </div>
+
+    <div class="Row flexcontainer">
+        <div class="col-sm-6 ">
+            <img src="~/images/ingrediants_icecreame.jpg" alt="" class="img-fluid d-block mx-auto myborder" />
+        </div>
+        <div class="col-sm-6 LM">
+            <p class="LM">
+            Hey there, Stillwater squad! 🎉 We're not just an ice cream shop; we're your go-to local flavor 
+            fiesta in the heart of OK! Picture this: Families, friends, and fantastic flavors coming together 
+            for a taste sensation like no other. We're not just scooping ice cream; we're crafting community happiness, 
+            one delicious and hand-crafted flavor at a time! 🍦✨ Get ready to embark on a flavor adventure that celebrates Stillwater in every scoop! 🌟
+            </p>
+        <p class="text-center TML"> Find out about our other products by pressing the button.</p>
+        <div class="col-lg-12  flexcontainer text-center">
+            @*  <input class="btn2" type="submit" value="Products" asp-page-handler="Process" /> *@
+            <form action="https://localhost:7257/Products">
+                <button class="btn2">Products</button>
+            </form>
+        </div>
+        </div>
+    </div>
+
+  
+
+@*Add our most popular flavours*@
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="text-center TM">Our top sellers</h1>
+    </div>
+</div>
+
+<div class="row">
+<div class="col-sm-4">
+    <div class="card TM" style="width: 18rem;">
+        <img src="~/Images/choclate_Icecream resized.jpg" alt="" class="img-fluid card-img-top d-block w-100 mx-auto " />
+        <div class="card-body">
+            <h4 class="card-title text-center">
+                Double chocolate
+            </h4>
+            </div>
+            <h5>
+                <label>Description :&nbsp;</label>
+                A rich blend of dark chocolate and milk chocolate
+            </h5>
+            <h5>
+                <label>Nut free :&nbsp;</label>
+                Yes
+            </h5>
+            <h5>
+                <label>Size :&nbsp;</label>
+                Pint
+            </h5>
+            <h5>
+                <label>Primary flavour :&nbsp;</label>
+                Chocolate
+            </h5>
+            <h5>
+                <label>Price :&nbsp;</label>
+                5.99
+            </h5>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card TM" style="width: 18rem;">
+            <img src="~/Images/Vanilla-Ice-Cream-cone-glass-sq.jpeg" class="img-fluid card-img-top d-block w-100 mx-auto " />
+            <div class="card-body">
+                <h4 class="card-title text-center">
+                    Vanilla
+                </h4>
+            </div>
+            <h5>
+                <label>Description :&nbsp;</label>
+                A creamy vanilla ice cream
+            </h5>
+            <h5>
+                <label>Nut free :&nbsp;</label>
+                Yes
+            </h5>
+            <h5>
+                <label>Size :&nbsp;</label>
+                Pint
+            </h5>
+            <h5>
+                <label>Primary flavour :&nbsp;</label>
+                Vanilla
+            </h5>
+            <h5>
+                <label>Price :&nbsp;</label>
+                5.99
+            </h5>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card TM" style="width: 18rem;">
+            <img src="~/Images/cookies-and-cream-ice-cream.jpg" class="img-fluid card-img-top d-block w-100 mx-auto " />
+            <div class="card-body">
+                <h4 class="card-title text-center">
+                    Cookies and cream
+                </h4>
+            </div>
+            <h5>
+                <label>Description :&nbsp;</label>
+                A mix of vanilla and cookie flavoured ice cream
+            </h5>
+            <h5>
+                <label>Nut free :&nbsp;</label>
+                Yes
+            </h5>
+            <h5>
+                <label>Size :&nbsp;</label>
+                Gallon
+            </h5>
+            <h5>
+                <label>Primary flavour :&nbsp;</label>
+                Vanilla
+            </h5>
+            <h5>
+                <label>Price :&nbsp;</label>
+                22.99
+            </h5>
+        </div>
+    </div>
+
+
+</div>
+
+

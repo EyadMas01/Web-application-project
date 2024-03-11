@@ -1,0 +1,152 @@
+﻿@page
+@model MaswadehEyadSprint4.Pages.AdminModel
+@{
+}
+
+<div class="text-center">
+    <h1 class="display-4">Enter Product</h1>
+</div>
+
+<form method="post">
+
+    @*This is my Ice creame name row*@
+    <div class="row mt-4">
+        <div class="col-sm-4 mylabels">
+            <label>Ice cream name</label>
+        </div>
+        <div class="col-sm-4">
+            @*Give user a text box*@
+            <input type="text" asp-for="Icecreamname" class="w-100" />
+        </div>
+        <div class="col-sm-4">
+            @*We will use this area for validation at a later time*@
+            <span asp-validation-for="Icecreamname"></span>
+        </div>
+    </div>
+
+    @*This is my Descriptions row*@
+    <div class="row mt-4">
+        <div class="col-sm-4 mylabels">
+            <label>Description</label>
+        </div>
+        <div class="col-sm-4">
+            @*Give user a text box*@
+            <input type="text" asp-for="Descriptions" class="w-100" />
+        </div>
+        <div class="col-sm-4">
+            @*We will use this area for validation at a later time*@
+            <span asp-validation-for="Descriptions"></span>
+        </div>
+    </div>
+
+
+    @*This is my Imagepath row*@
+    <div class="row mt-4">
+        <div class="col-sm-4 mylabels">
+            <label>Image path</label>
+        </div>
+        <div class="col-sm-4">
+            @*Give user a text box*@
+            <input type="text" asp-for="Imagepath" class="w-100" />
+        </div>
+        <div class="col-sm-4">
+            @*We will use this area for validation at a later time*@
+            <span asp-validation-for="Imagepath"></span>
+        </div>
+    </div>
+
+    @*This is my Icecream size row*@
+    <div class="row mt-3">
+        <div class="col-sm-4 mylabels">
+            <label>Ice cream size</label>
+        </div>
+        <div class="col-sm-4">
+            @*Give the user a dropdown list*@
+            @*use asp-iteams to populate list of iteams from the database. It uses SelectList in C#*@
+            <select id="ddlIcecreamSize" name="IcecreamSizeID" asp-for="IcecreamSizeID" asp-items="@Model.listofIcecreamsize">
+                <option value="0">--Select Size--</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            @*We will use this area for validation at a later time*@
+            <span asp-validation-for="IcecreamSizeID"></span>
+        </div>
+    </div>
+
+    @*This is my primary flavour row*@
+    <div class="row mt-3">
+        <div class="col-sm-4 mylabels">
+            <label>Primary flavour</label>
+        </div>
+        <div class="col-sm-4">
+            @*Give the user a dropdown list*@
+            @*use asp-iteams to populate list of iteams from the database. It uses SelectList in C#*@
+            <select id="ddlPrimaryFlavours" name="PrimaryFlavoursID" asp-for="PrimaryFlavoursID" asp-items="@Model.listofprimaryflavours">
+                <option value="0">--Select Primary Flavour--</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            @*We will use this area for validation at a later time*@
+            <span asp-validation-for="PrimaryFlavoursID"></span>
+        </div>
+    </div>
+
+    @*This is my Nut free row*@
+    <div class="row mt-3">
+        <div class="col-sm-4 mylabels">
+            <label>Nut free</label>
+        </div>
+        <div class="col-sm-4">
+            @*Give the user a dropdown list*@
+            @*use asp-iteams to populate list of iteams from the database. It uses SelectList in C#*@
+            <select id="ddlNutfree" name="NutfreeID" asp-for="NutfreeID" asp-items="@Model.listofNuts">
+                <option value="0">--Select if its Nut free or not--</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            @*We will use this area for validation at a later time*@
+            <span asp-validation-for="NutfreeID"></span>
+        </div>
+    </div>
+
+    @*This is my Special row*@
+    <div class="row mt-3">
+        <div class="col-sm-4 mylabels">
+            <label>Special</label>
+        </div>
+        <div class="col-sm-4">
+            @*Give the user a dropdown list*@
+            @*use asp-iteams to populate list of iteams from the database. It uses SelectList in C#*@
+            <select id="ddlSpecials" name="SpecialsID" asp-for="SpecialsID" asp-items="@Model.listofIspecials">
+                <option value="0">--Select Special day if needed--</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            @*We will use this area for validation at a later time*@
+            <span asp-validation-for="SpecialsID"></span>
+        </div>
+    </div>
+    
+
+    @*This is my Button row*@
+    <div class="row mt-3">
+        <div class="col-sm-8 offset-sm-4">
+            <input type="submit" class="btn btn-dark" asp-page-handler="Clear" value="Clear" formnovalidate />
+            <input type="submit" class="btn btn-dark" asp-page-handler="Add" value="Add Ice cream" />
+        </div>
+    </div>
+
+    @*This is my Message row to display success and error messages to the user*@
+    <div class="row mt-3">
+        <div class="col-sm-8 offset-sm-4">
+            <label>@Model.Message</label>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

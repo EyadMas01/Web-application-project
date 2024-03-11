@@ -1,0 +1,93 @@
+﻿@page
+@model MaswadehEyadSprint4.Pages.ProductsModel
+@{
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1>Products</h1>
+    </div>
+</div>
+
+@*this is our filter row*@
+<form method="post">
+<div class="row">
+    <div class="col-sm-3">
+        @*This will be our drop down list of our primary flavours*@
+            <select id="ddlPrimaryFlavours" name="PrimaryFlavoursID" asp-for="PrimaryFlavoursID" asp-items="@Model.listofprimaryflavours">
+            <option value="0">--Select Primary Flavour--</option>
+        </select>
+    </div>
+        <div class="col-sm-3">
+            @*This will be our drop down list of our Sizes*@
+            <select id="ddlIcecreamSize" name="IcecreamSizeID" asp-for="IcecreamSizeID" asp-items="@Model.listoficecreamsizes">
+                <option value="0">--Select ice cream size--</option>
+            </select>
+        </div>
+    <div class="col-sm-3">
+        @*this will be our radio button list for the nutr free options*@
+            <p>Nute free</p>
+        @foreach (var item in Model.listofnutfree)
+            {
+               <input type="radio" id="@item.NutfreeID" asp-for="NutfreeID" value="@item.NutfreeID" />
+
+
+                @item.Nutfreename
+            }
+            
+    </div>
+    <div class="col-sm-3">
+        @*This will be our filter and clear buttons*@
+        <input type="submit" asp-page-handler="Filter" value="Filter" class="btn btn-dark"/>
+            <input type="submit" asp-page-handler="Clear" value="Clear" class="btn btn-dark" />
+    </div>
+</div>
+</form>
+
+
+@*This is our product card*@
+<div class="row">
+
+
+    @foreach (var item in Model.allicecream)
+    {
+        <div class="col-sm-4">
+            <div class="card TM" style="width: 18rem;">
+                <img src="@item.Imagepath" alt="" class="img-fluid card-img-top d-block w-100 mx-auto " />
+                <div class="card-body">
+                    <h4 class="card-title text-center">
+                        @* Put the Ice cream name here from the database table*@
+                        @item.Icecreamname
+                    </h4>
+                    <h5>
+                        @*Put the description here, will probably look better with an accordion*@
+                        <label>Description :&nbsp;</label>
+                        @item.Descriptions
+                    </h5>
+                    <h5>
+                        @*Nut fee?*@
+                        <label>Nut free :&nbsp;</label>
+                        @item.Nutfreename
+                    </h5>
+                    <h5>
+                        @*Size*@
+                        <label>Size :&nbsp;</label>
+                        @item.IcecreamSizename
+                    </h5>
+                    <h5>
+                        @*Primary flavour*@
+                        <label>Primary flavour :&nbsp;</label>
+                        @item.PrimaryFlavoursname
+                    </h5>
+                    <h5>
+                        @*Price*@
+                        <label>Price :&nbsp;</label>
+                        @item.price
+                    </h5>
+                </div>
+                @*  <div class="card-footer text-center">
+            <h5>Just Arrived!</h5> *@
+            </div>
+        </div>
+    }
+</div>
